@@ -213,7 +213,7 @@
                                         </a>
                                     </div>
                                     {% for model in app.items %}
-                                        {% if model.has_perms %}
+                                        {% if model.has_perms and model.label and model.url %}
                                             <div>
                                                 <a{% if model.url %} href="{{ model.url }}"{% endif %} class="sidebar-link"{% if model.url_blank %} target="_blank"{% endif %}>
                                                     <span class="sidebar-right">
