@@ -444,13 +444,11 @@ def get_menu_items(context):
         app_list = list(map(map_item, original_app_list.values()))
 
     for app in app_list:
-        has_perms = app.get('has_perms', True)
-        if has_perms:
+        if app.get('has_perms', True):
             for model in app['items']:
-                has_perms = has_perms and model.get('has_perms', True)
-                if not has_perms:
+                if not model.get('has_perms', True):
+                    app['has_perms'] = False
                     break
-            app['has_perms'] = has_perms
 
     current_found = False
 
