@@ -332,7 +332,7 @@ def get_menu_items(context):
         app_list = []
 
         def get_menu_item_app_model(app_label, data):
-            item = {'has_perms': True}
+            item = {'has_perms': False}
 
             if 'name' in data:
                 parts = data['name'].split('.', 2)
@@ -361,7 +361,7 @@ def get_menu_items(context):
                 item['url_blank'] = data['url_blank']
 
             if 'permissions' in data:
-                item['has_perms'] = item.get('has_perms', True) and context['user'].has_perms(data['permissions'])
+                item['has_perms'] = context['user'].has_perms(data['permissions'])
 
             return item
 
@@ -445,10 +445,12 @@ def get_menu_items(context):
 
     for app in app_list:
         if app.get('has_perms', True):
+            has_perms = False
             for model in app['items']:
-                if not model.get('has_perms', True):
-                    app['has_perms'] = False
+                if model.get('has_perms', True):
+                    has_perms = True
                     break
+            app['has_perms'] = has_perms
 
     current_found = False
 
