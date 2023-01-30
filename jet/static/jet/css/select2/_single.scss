@@ -10,7 +10,10 @@
   .select2-selection__clear {
     cursor: pointer;
     float: right;
-    font-weight: bold;
+    font-weight: normal;
+    font-size: 1.7em;
+    padding-left: 0.4em;
+    color: $input-icon-color;
   }
 
   .select2-selection__arrow {

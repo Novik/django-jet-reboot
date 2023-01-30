@@ -158,6 +158,8 @@ Select2.prototype = {
             var objectId = $select.data('object-id');
             var pageSize = 100;
 
+            settings['allowClear'] = true;
+
             settings['ajax'] = {
                 dataType: 'json',
                 data: function (params) {
@@ -222,7 +224,7 @@ Select2.prototype = {
             self.initSelect($select, DropdownAdapter);
         });
 
-        $('select').trigger('select:init');
+        $('select').not('.admin-autocomplete').trigger('select:init');
 
         $('.inline-group').on('inline-group-row:added', function(e, $inlineItem) {
             $inlineItem.find('select').trigger('select:init');
