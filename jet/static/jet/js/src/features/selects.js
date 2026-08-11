@@ -196,6 +196,7 @@ Select2.prototype = {
         });
 
         $select.select2(settings);
+        $select.removeAttr('aria-hidden');
     },
     initSelect2: function() {
         var self = this;
