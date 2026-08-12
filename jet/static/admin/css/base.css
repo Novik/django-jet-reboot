@@ -8,3 +8,7 @@
     white-space: nowrap;
     border: 0;
 }
+
+.related-widget-wrapper-link.view-related {
+    display: none;
+}
