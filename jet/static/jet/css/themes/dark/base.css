@@ -8847,7 +8847,7 @@ form .aligned table p {
 }
 
 fieldset .field-box {
-	float: left;
+	float: none;
 	margin-right: 20px;
 	margin-right: 1.42857rem
 }
